@@ -1,0 +1,14 @@
+---
+// Write <head> tag settings for each locale
+
+import type { Lang } from "@/i18n";
+const locale = Astro.currentLocale as Lang;
+---
+
+{
+  locale === "en" ? (
+    <style>body{ font-family: "Noto Sans", sans-serif; }</style>
+  )
+
+  : null
+}
