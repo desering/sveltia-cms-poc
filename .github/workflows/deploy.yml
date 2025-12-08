@@ -1,0 +1,42 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  ASTRO_TELEMETRY_DISABLED: true
+
+jobs:
+  build:
+    runs-on: [ ubuntu-24.04 ]
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/configure-pages@v5
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: ".bun-version"
+
+      - run: bun install --no-save --frozen-lockfile
+
+      - run: bun run --bun build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    runs-on: [ ubuntu-24.04 ]
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

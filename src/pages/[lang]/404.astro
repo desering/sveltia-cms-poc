@@ -27,10 +27,7 @@ export const getStaticPaths = () => localeParams;
       <h2>
         {
           t({
-            ja: "他の言語で見る",
             en: "View in other languages",
-            "zh-cn": "用其他语言查看",
-            ar: "عرض بلغات أخرى",
             es: "Ver en otros idiomas",
           })
         }
@@ -44,7 +41,6 @@ export const getStaticPaths = () => localeParams;
                 href={`/${lang}/`}
                 data-lang-path={lang}
                 onclick={`localStorage.selectedLang = "${lang}"`}
-                dir={LOCALES[lang].dir || null}
               >
                 {label}
               </a>

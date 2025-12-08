@@ -6,7 +6,6 @@ export const LOCALES = LOCALES_SETTING as Record<string, LocaleConfig>;
 type LocaleConfig = {
 	readonly label: string;
 	readonly lang?: string;
-	readonly dir?: "ltr" | "rtl";
 	readonly flag?: string;
 };
 
