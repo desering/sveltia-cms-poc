@@ -17,5 +17,5 @@ jobs:
 
       - run: bun install --no-save --frozen-lockfile
       - run: bun run --bun astro check
-      - run: bun run --bun test
+      - run: bun run test # vi.mock depends on Node.js behavior for module interception and is not compatible with bun
       - run: bun run --bun build
