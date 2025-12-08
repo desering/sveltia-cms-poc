@@ -30,7 +30,8 @@ Run dev server:
 bun run --bun dev
 ```
 
-Run tests with vitest:
+Run tests with vitest (`vi.mock` depends on Node.js behavior for module
+interception and is not compatible with the `--bun` runtime):
 ```shell
-bun run --bun test
+bun run test
 ```
