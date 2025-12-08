@@ -14,7 +14,6 @@ import { LOCALES, getLocalePaths } from "@/i18n";
           value={path}
           data-lang={lang}
           selected={lang === Astro.currentLocale}
-          dir={LOCALES[lang].dir || null}
         />
       ))
     }

@@ -1,0 +1,21 @@
+name: check
+
+on:
+  push:
+
+env:
+  ASTRO_TELEMETRY_DISABLED: true
+
+jobs:
+  astro-check:
+    runs-on: [ubuntu-22.04]
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: ".bun-version"
+
+      - run: bun install --no-save --frozen-lockfile
+      - run: bun run --bun astro check
+      - run: bun run --bun test
+      - run: bun run --bun build
