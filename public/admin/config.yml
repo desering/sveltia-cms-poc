@@ -6,7 +6,7 @@ backend:
   name: github
   repo: desering/sveltia-cms-poc
   branch: main
-  base_url: https://sveltia-cms-poc.desering.workers.dev/
+  base_url: https://sveltia-cms-auth.desering.workers.dev
 
 publish_mode: editorial_workflow
 
