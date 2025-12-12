@@ -35,3 +35,10 @@ interception and is not compatible with the `--bun` runtime):
 ```shell
 bun run test
 ```
+
+## Deployment
+
+GHA workflow builds static site and pushes it to GitHub Pages.
+
+Sveltia CMS requires an Oauth client to allow users to authenticate to GitHub.
+See https://github.com/desering/sveltia-cms-auth.
